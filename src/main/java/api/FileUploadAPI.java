@@ -31,6 +31,19 @@ public class FileUploadAPI extends HttpServlet {
     public boolean exportFileToSpecificPath(InputStream stream, String extension, String fileName) throws FileNotFoundException {
         String filePath = System.getProperty("user.home") + "\\OneDrive\\Desktop\\" + fileName + "." + extension;
         FileOutputStream fileOutputStream = new FileOutputStream(filePath);;
+
+        String folderPath = System.getProperty("user.home") + "\\OneDrive\\Desktop\\Sample\\";
+        filePath = folderPath + fileName + "." + extension;
+
+        java.io.File folder = new java.io.File(folderPath);
+        if (!folder.exists()) {
+            boolean created = folder.mkdirs(); // create folder if it doesn't exist
+            if (!created) {
+                System.err.println("Failed to create the folder: " + folderPath);
+                return false;
+            }
+        }
+
         try {
             fileOutputStream = new FileOutputStream(filePath);
             int i = 0;

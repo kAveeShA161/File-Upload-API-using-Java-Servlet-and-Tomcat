@@ -4,13 +4,7 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
-  <servlet>
-    <servlet-name>customer</servlet-name>
-    <servlet-class>api.CustomerAPI</servlet-class>
-  </servlet>
 
-  <servlet-mapping>
-    <servlet-name>customer</servlet-name>
-    <url-pattern>/customer</url-pattern>
-  </servlet-mapping>
+
+  
 </web-app>
